@@ -1,32 +1,48 @@
-# CRMY
+# CRMY (CRM Otomasyonu)
 
-CRMY, C# ve Windows Forms kullanılarak geliştirilmiş bir **CRM (Customer Relationship Management)** uygulamasıdır.  
-Bu proje, müşteri bilgilerini yönetmek, güncellemek ve temel CRM işlemlerini gerçekleştirmek amacıyla oluşturulmuştur.
+CRMY, C# ve Windows Forms kullanılarak geliştirilmiş bir CRM (Customer Relationship Management) uygulamasıdır.
+Müşteri ve talep yönetimi gibi temel CRM işlemlerini basit bir arayüzle sunar.
 
 ## Özellikler
-- Müşteri ekleme
-- Müşteri güncelleme
-- Müşteri silme
-- Müşteri listeleme
-- Firebase Firestore entegrasyonu
-- Asenkron veri işlemleri
+- Müşteri ekleme / güncelleme / silme / listeleme
+- Talep işlemleri (ekleme / listeleme vb.)
+- Firestore entegrasyonu (proje yapısına eklenmiştir)
+- Demo Login (hocanın bilgisayarında hızlı çalıştırma için)
 
-## Kullanılan Teknolojiler
-- C#
-- .NET Framework
-- Windows Forms
-- Firebase Firestore
-- Git & GitHub
+## Gereksinimler
+- Windows
+- Visual Studio 2022 (veya 2019)
+- .NET Framework 4.7.2
+- NuGet (Visual Studio ile birlikte gelir)
 
-## Proje Yapısı
-- `crmy/` → Ana uygulama dosyaları
-- `*.cs` → Formlar ve iş mantığı sınıfları
-- `.gitignore` → Versiyon kontrol ayarları
-- `.sln` → Visual Studio solution dosyası
+## Kurulum ve Çalıştırma
+1. Projeyi indirin:
+   - GitHub → Code → Download ZIP (veya clone)
 
-## Güvenlik
-Firebase servis hesabı anahtar dosyaları (**firebase-adminsdk.json**) güvenlik nedeniyle **GitHub’a dahil edilmemiştir** ve `.gitignore` ile hariç tutulmuştur.
+2. ZIP'i çıkarın ve **crmy.sln** dosyasını açın.
 
+3. NuGet paketlerini geri yükleyin:
+   - Tools → NuGet Package Manager → Restore NuGet Packages  
+   (veya Build aldığınızda otomatik restore eder)
 
-##  Not
-Bu proje eğitim ve öğrenme amaçlı geliştirilmiştir.
+4. Build alın:
+   - Build → Rebuild Solution
+
+5. Çalıştırın:
+   - Start (F5)
+
+## Demo Login
+Projede hocanın bilgisayarında sorunsuz test için demo login yapılandırması vardır.
+
+- DemoMode: true/false
+- DemoUsername: ...
+- DemoPasswordHash: ...
+
+> Ayarlar `App.config` içindeki `appSettings` bölümündedir.
+
+## Notlar
+- `bin/` ve `obj/` klasörleri GitHub'a dahil edilmez; Build alınca otomatik oluşur.
+- Eğer "crmy.exe missing" hatası alırsanız, Build başarısız olmuştur:
+  - Build → Clean Solution
+  - Build → Rebuild Solution
+  - crmy.exe arka planda açıksa kapatın (Task Manager).
